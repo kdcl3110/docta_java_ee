@@ -1,4 +1,4 @@
-package com.docta.servlet;
+package com.doctor.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,15 +8,15 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Servlet implementation class Auth
+ * Servlet implementation class Medecin
  */
-public class Auth extends HttpServlet {
+public class Medecin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Auth() {
+    public Medecin() {
         super();
         // TODO Auto-generated constructor stub
     }
