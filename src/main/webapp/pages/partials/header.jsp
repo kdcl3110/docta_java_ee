@@ -1,4 +1,22 @@
 
+<!-- ======= Top Bar ======= -->
+<div id="topbar" class="d-flex align-items-center fixed-top">
+	<div class="container d-flex justify-content-between">
+		<div class="contact-info d-flex align-items-center">
+			<i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">
+				<c:out value="${ patient.name }"></c:out>
+			</a> <i class="bi bi-phone"></i> +237
+			<c:out value="${ patient.phone }"></c:out>
+		</div>
+		<div class="d-none d-lg-flex social-links align-items-center">
+			<a href="#" class="twitter"><i class="bi bi-twitter"></i></a> <a
+				href="#" class="facebook"><i class="bi bi-facebook"></i></a> <a
+				href="#" class="instagram"><i class="bi bi-instagram"></i></a> <a
+				href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+		</div>
+	</div>
+</div>
+
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top">
 	<div class="container d-flex align-items-center">
@@ -34,10 +52,13 @@
 			<ul>
 				<li><a class="nav-link scrollto <%out.print(das);%>"
 					href="Patient?page=dashboard">Dashboard</a></li>
+
 				<li><a class="nav-link scrollto <%out.print(note);%>"
-					href="Patient?page=notebook">Note Book</a></li>
+					href="Patient?page=notebook">Mes demandes</a></li>
+
 				<li><a class="nav-link scrollto <%out.print(fol);%>"
 					href="Patient?page=follow">Follow</a></li>
+
 				<li><a class="nav-link scrollto <%out.print(his);%>"
 					href="Patient?page=history">Historique</a></li>
 			</ul>

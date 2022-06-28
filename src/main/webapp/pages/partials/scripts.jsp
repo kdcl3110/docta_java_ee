@@ -1,5 +1,6 @@
 
 <!-- Vendor JS Files -->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/vendor/purecounter/purecounter.js"></script>
 <script src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -79,12 +80,12 @@ new Vue({
     steps: [
     {
       id: 1,
-      title: "Type",
+      title: "Type de rendez-vous",
       icon_class: "fa fa-map-marker" },
 
     {
       id: 2,
-      title: "MÃ©decins, Horaires",
+      title: "Médecins, Horaires",
       icon_class: "fa fa-folder-open" },
 
     {

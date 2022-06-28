@@ -177,7 +177,7 @@ public class AuthDaoImpl implements AuthDao {
 			preparedStatement.setString(3, complet[1]);
 			
 			if (preparedStatement.executeUpdate() > 0) {
-				preparedStatement = connexion.prepareStatement("select * from patient ORDER BY id_user DESC LIMIT 1;");
+				preparedStatement = connexion.prepareStatement("select * from patient ORDER BY id_patient DESC LIMIT 1;");
 				req = preparedStatement.executeQuery();
 				Patient patient = new Patient();
 				patient.setName(user.getName());
@@ -188,7 +188,7 @@ public class AuthDaoImpl implements AuthDao {
 
 				while (req.next()) {
 //						name, phone, email, pwd
-					patient.setPatientId(req.getInt("patient_id"));
+					patient.setPatientId(req.getInt("id_patient"));
 					patient.setDateNais(req.getString("date_nais"));
 					patient.setSexe(req.getString("sexe"));
 				}
@@ -215,7 +215,7 @@ public class AuthDaoImpl implements AuthDao {
 			preparedStatement.setString(2, speciality);
 			
 			if (preparedStatement.executeUpdate() > 0) {
-				preparedStatement = connexion.prepareStatement("select * from patient ORDER BY id_user DESC LIMIT 1;");
+				preparedStatement = connexion.prepareStatement("select * from medecin ORDER BY id_medecin DESC LIMIT 1;");
 				req = preparedStatement.executeQuery();
 				
 				Medecin medecin = new Medecin();
@@ -226,7 +226,7 @@ public class AuthDaoImpl implements AuthDao {
 				medecin.setUserId(user.getUserId());
 
 				while (req.next()) {
-					medecin.setPatientId(req.getInt("id_medecin"));
+					medecin.setMedecinId(req.getInt("id_medecin"));
 					medecin.setSpeciality(req.getString("speciality"));
 				}
 

@@ -1,15 +1,17 @@
 package com.doctor.bean;
 
 public class Medecin extends User {
-	private int patientId;
+	private int medecinId;
 	private String speciality;
 	
-	public int getPatientId() {
-		return patientId;
+	
+
+	public int getMedecinId() {
+		return medecinId;
 	}
 
-	public void setPatientId(int patientId) {
-		this.patientId = patientId;
+	public void setMedecinId(int medecinId) {
+		this.medecinId = medecinId;
 	}
 
 	public String getSpeciality() {

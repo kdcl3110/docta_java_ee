@@ -1586,11 +1586,11 @@ section {
   background-color: #87D37C;
 }
 .step-indicator li.complete .step {
-  border-color: #87D37C;
-  color: #87D37C;
+  border-color: #1792b8;
+  color: #1792b8;
 }
 .step-indicator li.complete .caption {
-  color: #87D37C;
+  color: #1792b8;
 }
 .step-indicator .step {
   background-color: #fff;
