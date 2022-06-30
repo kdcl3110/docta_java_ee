@@ -66,12 +66,14 @@ public class PatientDaoImpl implements PatientDao {
 		try {
 			connexion = daoFactory.getConnection();
 			preparedStatement = connexion.prepareStatement(
-					"INSERT INTO appointment(id_medecin, concern_id, type, date_rdv, houre) VALUES(?, ?, ?, ?, ?);");
+					"INSERT INTO appointment(id_medecin, concern_id, type, date_rdv, houre, status, is_finis) VALUES(?, ?, ?, ?, ?, ?, ?);");
 			preparedStatement.setInt(1, appointment.getIdMedecin());
 			preparedStatement.setInt(2, appointment.getConcernId());
 			preparedStatement.setString(3, appointment.getType());
 			preparedStatement.setString(4, appointment.getDate());
 			preparedStatement.setString(5, appointment.getHoure());
+			preparedStatement.setString(6, "new");
+			preparedStatement.setString(7, "no");
 			preparedStatement.executeUpdate();
 
 			return true;
@@ -134,6 +136,8 @@ public class PatientDaoImpl implements PatientDao {
 				appointment.setConcernId(resultat.getInt("concern_id"));
 				appointment.setIdMedecin(resultat.getInt("id_medecin"));
 				appointment.setIdAppointment(resultat.getInt("id_appointment"));
+				appointment.setStatus(resultat.getString("status"));
+				appointment.setIsFinis(resultat.getString("is_finis"));
 
 				medecin.setEmail(resultat.getString("email"));
 				medecin.setName(resultat.getString("name"));

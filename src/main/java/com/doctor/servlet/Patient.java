@@ -117,7 +117,7 @@ public class Patient extends HttpServlet {
 		boolean test = patientDao.makeAppointment(appointment);
 		if (test) {
 			String msg= patient.getName() + " vous a envoyé une demande de rendez-vous pour le " + appointment.getDate() + " à " + appointment.getHoure();
-			SendSms.sendSms("+237695442264", msg);
+			SendSms.sendSms("+237699942969", msg);
 			request.setAttribute("success", "Votre demande a été envoyée");
 		} else {
 			request.setAttribute("error", "Une erreur c'est produite");

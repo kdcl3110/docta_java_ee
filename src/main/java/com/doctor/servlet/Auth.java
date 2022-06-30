@@ -88,12 +88,25 @@ public class Auth extends HttpServlet {
 					sessions.setAttribute("patientid", p.getPatientId());
 					sessions.setAttribute("patientdatenais", p.getDateNais());
 					sessions.setAttribute("patientsexe", p.getSexe());
+					sessions.setAttribute("page", "dashboard");
+					
+					response.sendRedirect("http://localhost:8080/Doctor/Patient?page=dashboard");
 				} else {
 					Medecin m = (Medecin) user;
+					sessions.setAttribute("medecinname", m.getName());
+					sessions.setAttribute("medecinphone", m.getPhone());
+					sessions.setAttribute("medecinemail", m.getEmail());
+					sessions.setAttribute("mid", m.getMedecinId());
+					sessions.setAttribute("userid", m.getUserId());
+					sessions.setAttribute("medecinspeciality", m.getSpeciality());
+					sessions.setAttribute("page", "dashboard");
+					
+					response.sendRedirect("http://localhost:8080/Doctor/Medecin?page=dashboard");
 				}
 				System.out.println(user.getClass().getName());
-				sessions.setAttribute("page", "dashboard");
-				response.sendRedirect("http://localhost:8080/Doctor/Patient?page=dashboard");
+			}  else {				
+				request.setAttribute("error", "identifients incorrect");
+				this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 			}
 //			System.out.println(user.toString());
 		} else if (type.equals("register")) {
@@ -112,8 +125,6 @@ public class Auth extends HttpServlet {
 				request.setAttribute("userinfos", user.toString());
 				sessions.setAttribute("page", "dashboard");
 				sessions.setAttribute("user", user);
-				// this.getServletContext().getRequestDispatcher("/index.jsp").forward(request,
-				// response);
 				response.sendRedirect("http://localhost:8080/Doctor/home?page=complete");
 			}
 		} else if (type.equals("complete")) {
@@ -135,14 +146,25 @@ public class Auth extends HttpServlet {
 					sessions.setAttribute("patientdatenais", patient.getDateNais());
 					sessions.setAttribute("patientsexe", patient.getSexe());
 					response.sendRedirect("http://localhost:8080/Doctor/Patient?page=dasboard");
+				} else {
+					request.setAttribute("error", "Une erreur c'est produite");
+					this.getServletContext().getRequestDispatcher("/completProfile.jsp").forward(request, response);
 				}
 			} else if (test.equals("red")) {
 				String speciality = request.getParameter("speciality");
 				medecin = authDao.completMedecin(user, speciality);
 
-				if (patient != null) {
-					sessions.setAttribute("medecin", medecin);
-					response.sendRedirect("http://localhost:8080/Doctor/Medecin?page=dasboard");
+				if (medecin != null) {
+					sessions.setAttribute("medecinname", medecin.getName());
+					sessions.setAttribute("medecinphone", medecin.getPhone());
+					sessions.setAttribute("medecinemail", medecin.getEmail());
+					sessions.setAttribute("mid", medecin.getMedecinId());
+					sessions.setAttribute("userid", medecin.getUserId());
+					sessions.setAttribute("medecinspeciality", medecin.getSpeciality());
+					response.sendRedirect("http://localhost:8080/Doctor/Medecin?page=dashboard");
+				}else {
+					request.setAttribute("error", "Une erreur c'est produite");
+					this.getServletContext().getRequestDispatcher("/completProfile.jsp").forward(request, response);
 				}
 			}
 		}

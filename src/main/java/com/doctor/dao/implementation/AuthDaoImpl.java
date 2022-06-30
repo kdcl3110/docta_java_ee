@@ -128,6 +128,7 @@ public class AuthDaoImpl implements AuthDao {
 
 			while (resultat.next()) {
 				medecin = new Medecin();
+				medecin.setMedecinId(resultat.getInt("id_medecin"));
 				medecin.setSpeciality(resultat.getString("speciality"));
 			}
 			return medecin;
@@ -152,6 +153,7 @@ public class AuthDaoImpl implements AuthDao {
 
 			while (resultat.next()) {
 				patient = new Patient();
+				patient.setPatientId(resultat.getInt("id_patient"));
 				patient.setSexe(resultat.getString("date_nais"));
 				patient.setDateNais(resultat.getString("date_nais"));
 			}

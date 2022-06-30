@@ -7,11 +7,14 @@ public class Appointment {
 	private String date;
 	private String houre;
 	private int concernId;
+	private String status;
+	private String isFinis;
 
 	public Appointment() {
 	}
 
-	public Appointment(int idAppointment, String type, int idMedecin, String date, String houre, int concernId) {
+	public Appointment(int idAppointment, String type, int idMedecin, String date, String houre, int concernId,
+			String status, String isFinis) {
 		super();
 		this.idAppointment = idAppointment;
 		this.type = type;
@@ -19,6 +22,8 @@ public class Appointment {
 		this.date = date;
 		this.houre = houre;
 		this.concernId = concernId;
+		this.status = status ;
+		this.isFinis = isFinis;
 	}
 
 	public int getConcernId() {
@@ -47,6 +52,22 @@ public class Appointment {
 
 	public int getIdMedecin() {
 		return idMedecin;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getIsFinis() {
+		return isFinis;
+	}
+
+	public void setIsFinis(String isFinis) {
+		this.isFinis = isFinis;
 	}
 
 	public void setIdMedecin(int idMedecin) {

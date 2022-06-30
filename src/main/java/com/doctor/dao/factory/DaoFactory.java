@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import com.doctor.dao.implementation.AuthDaoImpl;
+import com.doctor.dao.implementation.MedecinDaoImpl;
 import com.doctor.dao.implementation.PatientDaoImpl;
 
 
@@ -42,5 +43,9 @@ public class DaoFactory {
     
     public PatientDaoImpl getPatientDao() {
     	return new PatientDaoImpl(this);
+    }
+    
+    public MedecinDaoImpl getMedecinDao() {
+    	return new MedecinDaoImpl(this);
     }
 }
